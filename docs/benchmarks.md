@@ -23,7 +23,8 @@
 
 ## 기준선: dev 5cbca8b (Node 22.19, jsdom 26.1)
 
-원자료: `docs/bench/baseline-5cbca8b.json`, `docs/bench/baseline-5cbca8b-10k.json`
+원자료: `docs/bench/baseline-5cbca8b.json`, `docs/bench/baseline-5cbca8b-10k.json`.
+dev 679e749(B1·B2 수정, `EARLY_PROPS`)에서도 결정적 지표는 모두 같다(예산 테스트 통과). 이 시나리오에는 type·multiple 변경이 없다.
 
 ### 1,000행 (11회 중앙값)
 
