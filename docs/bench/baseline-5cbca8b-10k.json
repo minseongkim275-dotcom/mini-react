@@ -1,0 +1,282 @@
+{
+  "rows": 10000,
+  "runs": 1,
+  "warmup": 0,
+  "node": "v22.19.0",
+  "results": [
+    {
+      "id": "create-null",
+      "name": "create (from null)",
+      "patches": 1,
+      "kinds": {
+        "CREATE": 1
+      },
+      "records": 1,
+      "addedRemoved": 1,
+      "created": 90002,
+      "moves": {
+        "engine": 0,
+        "lisMin": 0,
+        "react": 0
+      },
+      "diffMs": 58.91,
+      "patchMs": 1757.74,
+      "totalMs": 1816.65
+    },
+    {
+      "id": "create-empty",
+      "name": "create (empty tbody)",
+      "patches": 10000,
+      "kinds": {
+        "CREATE": 10000
+      },
+      "records": 10000,
+      "addedRemoved": 10000,
+      "created": 90000,
+      "moves": {
+        "engine": 0,
+        "lisMin": 0,
+        "react": 0
+      },
+      "diffMs": 41.85,
+      "patchMs": 1339.16,
+      "totalMs": 1381.01
+    },
+    {
+      "id": "replace-all",
+      "name": "replace all",
+      "patches": 20000,
+      "kinds": {
+        "REMOVE": 10000,
+        "CREATE": 10000
+      },
+      "records": 20000,
+      "addedRemoved": 20000,
+      "created": 90000,
+      "moves": {
+        "engine": 0,
+        "lisMin": 0,
+        "react": 0
+      },
+      "diffMs": 76.67,
+      "patchMs": 1399.95,
+      "totalMs": 1476.62
+    },
+    {
+      "id": "update-10th",
+      "name": "update every 10th",
+      "patches": 21000,
+      "kinds": {
+        "TEXT": 1000,
+        "PROPS": 20000
+      },
+      "records": 1000,
+      "addedRemoved": 0,
+      "created": 0,
+      "moves": {
+        "engine": 0,
+        "lisMin": 0,
+        "react": 0
+      },
+      "diffMs": 151.39,
+      "patchMs": 30.55,
+      "totalMs": 181.94
+    },
+    {
+      "id": "select",
+      "name": "select row",
+      "patches": 20001,
+      "kinds": {
+        "PROPS": 20001
+      },
+      "records": 1,
+      "addedRemoved": 0,
+      "created": 0,
+      "moves": {
+        "engine": 0,
+        "lisMin": 0,
+        "react": 0
+      },
+      "diffMs": 179.8,
+      "patchMs": 40.38,
+      "totalMs": 220.18
+    },
+    {
+      "id": "swap",
+      "name": "swap 2 rows",
+      "patches": 20002,
+      "kinds": {
+        "PROPS": 20000,
+        "MOVE": 2
+      },
+      "records": 4,
+      "addedRemoved": 4,
+      "created": 0,
+      "moves": {
+        "engine": 2,
+        "lisMin": 2,
+        "react": 9997
+      },
+      "diffMs": 264.06,
+      "patchMs": 28.37,
+      "totalMs": 292.43
+    },
+    {
+      "id": "last-to-first",
+      "name": "last to first",
+      "patches": 20001,
+      "kinds": {
+        "PROPS": 20000,
+        "MOVE": 1
+      },
+      "records": 2,
+      "addedRemoved": 2,
+      "created": 0,
+      "moves": {
+        "engine": 1,
+        "lisMin": 1,
+        "react": 9999
+      },
+      "diffMs": 177.23,
+      "patchMs": 43.96,
+      "totalMs": 221.19
+    },
+    {
+      "id": "reverse",
+      "name": "reverse",
+      "patches": 29999,
+      "kinds": {
+        "PROPS": 20000,
+        "MOVE": 9999
+      },
+      "records": 19998,
+      "addedRemoved": 19998,
+      "created": 0,
+      "moves": {
+        "engine": 9999,
+        "lisMin": 9999,
+        "react": 9999
+      },
+      "diffMs": 255.52,
+      "patchMs": 5421.87,
+      "totalMs": 5677.39
+    },
+    {
+      "id": "remove-one",
+      "name": "remove 1 row",
+      "patches": 19999,
+      "kinds": {
+        "PROPS": 19998,
+        "REMOVE": 1
+      },
+      "records": 1,
+      "addedRemoved": 1,
+      "created": 0,
+      "moves": {
+        "engine": 0,
+        "lisMin": 0,
+        "react": 0
+      },
+      "diffMs": 144.85,
+      "patchMs": 24.69,
+      "totalMs": 169.54
+    },
+    {
+      "id": "append",
+      "name": "append n to n",
+      "patches": 30000,
+      "kinds": {
+        "PROPS": 20000,
+        "CREATE": 10000
+      },
+      "records": 10000,
+      "addedRemoved": 10000,
+      "created": 90000,
+      "moves": {
+        "engine": 0,
+        "lisMin": 0,
+        "react": 0
+      },
+      "diffMs": 266.71,
+      "patchMs": 9981.22,
+      "totalMs": 10247.93
+    },
+    {
+      "id": "noop",
+      "name": "same data re-render",
+      "patches": 20000,
+      "kinds": {
+        "PROPS": 20000
+      },
+      "records": 0,
+      "addedRemoved": 0,
+      "created": 0,
+      "moves": {
+        "engine": 0,
+        "lisMin": 0,
+        "react": 0
+      },
+      "diffMs": 137.35,
+      "patchMs": 19.55,
+      "totalMs": 156.9
+    },
+    {
+      "id": "clear",
+      "name": "clear",
+      "patches": 10000,
+      "kinds": {
+        "REMOVE": 10000
+      },
+      "records": 10000,
+      "addedRemoved": 10000,
+      "created": 0,
+      "moves": {
+        "engine": 0,
+        "lisMin": 0,
+        "react": 0
+      },
+      "diffMs": 19.2,
+      "patchMs": 158.58,
+      "totalMs": 177.78
+    },
+    {
+      "id": "attach-update-10th",
+      "name": "attach: update every 10th",
+      "patches": 31000,
+      "kinds": {
+        "TEXT": 1000,
+        "PROPS": 30000
+      },
+      "records": 11000,
+      "addedRemoved": 0,
+      "created": 0,
+      "moves": {
+        "engine": 0,
+        "lisMin": 0,
+        "react": 0
+      },
+      "diffMs": 155.82,
+      "patchMs": 185.43,
+      "totalMs": 341.25
+    },
+    {
+      "id": "attach-clear",
+      "name": "attach: clear",
+      "patches": 10000,
+      "kinds": {
+        "REMOVE": 10000
+      },
+      "records": 10000,
+      "addedRemoved": 10000,
+      "created": 0,
+      "moves": {
+        "engine": 0,
+        "lisMin": 0,
+        "react": 0
+      },
+      "diffMs": 27.85,
+      "patchMs": 43000.51,
+      "totalMs": 43028.36
+    }
+  ]
+}
