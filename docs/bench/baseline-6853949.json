@@ -5,9 +5,9 @@
   "results": [
     {
       "name": "create 1k (from null)",
-      "ms": 112.94,
-      "diffMs": 2.13,
-      "patchMs": 110.89,
+      "ms": 107.44,
+      "diffMs": 1.76,
+      "patchMs": 105.59,
       "patches": 1,
       "byType": {
         "CREATE": 1
@@ -16,9 +16,9 @@
     },
     {
       "name": "create 1k (empty tbody)",
-      "ms": 159.96,
-      "diffMs": 3.15,
-      "patchMs": 157.33,
+      "ms": 109.01,
+      "diffMs": 2.04,
+      "patchMs": 104.58,
       "patches": 1000,
       "byType": {
         "CREATE": 1000
@@ -27,9 +27,9 @@
     },
     {
       "name": "replace all 1k",
-      "ms": 175.72,
-      "diffMs": 5.46,
-      "patchMs": 169.33,
+      "ms": 123.85,
+      "diffMs": 3.62,
+      "patchMs": 120.36,
       "patches": 2000,
       "byType": {
         "REMOVE": 1000,
@@ -39,9 +39,9 @@
     },
     {
       "name": "update every 10th",
-      "ms": 24.04,
-      "diffMs": 21.7,
-      "patchMs": 2.7,
+      "ms": 16.21,
+      "diffMs": 12.03,
+      "patchMs": 1.56,
       "patches": 2100,
       "byType": {
         "TEXT": 100,
@@ -51,9 +51,9 @@
     },
     {
       "name": "select row",
-      "ms": 30.85,
-      "diffMs": 27.7,
-      "patchMs": 2.37,
+      "ms": 15.51,
+      "diffMs": 13.65,
+      "patchMs": 1.05,
       "patches": 2001,
       "byType": {
         "PROPS": 2001
@@ -62,9 +62,9 @@
     },
     {
       "name": "swap 2 rows",
-      "ms": 57.73,
-      "diffMs": 49.42,
-      "patchMs": 5.53,
+      "ms": 17.63,
+      "diffMs": 15.71,
+      "patchMs": 1.5,
       "patches": 2002,
       "byType": {
         "PROPS": 2000,
@@ -74,9 +74,9 @@
     },
     {
       "name": "last to first",
-      "ms": 27.19,
-      "diffMs": 22.39,
-      "patchMs": 2.49,
+      "ms": 17.51,
+      "diffMs": 13.89,
+      "patchMs": 1.45,
       "patches": 2001,
       "byType": {
         "PROPS": 2000,
@@ -86,9 +86,9 @@
     },
     {
       "name": "reverse",
-      "ms": 95.88,
-      "diffMs": 19.39,
-      "patchMs": 75.18,
+      "ms": 66.79,
+      "diffMs": 12.8,
+      "patchMs": 54.32,
       "patches": 2999,
       "byType": {
         "PROPS": 2000,
@@ -98,9 +98,9 @@
     },
     {
       "name": "remove 1 row",
-      "ms": 41.33,
-      "diffMs": 38.66,
-      "patchMs": 2.93,
+      "ms": 18.44,
+      "diffMs": 15.32,
+      "patchMs": 1.72,
       "patches": 1999,
       "byType": {
         "PROPS": 1998,
@@ -110,9 +110,9 @@
     },
     {
       "name": "append 1k to 1k",
-      "ms": 520.74,
-      "diffMs": 47.88,
-      "patchMs": 465.83,
+      "ms": 198.42,
+      "diffMs": 21.69,
+      "patchMs": 179.13,
       "patches": 3000,
       "byType": {
         "PROPS": 2000,
@@ -122,9 +122,9 @@
     },
     {
       "name": "no-op re-render",
-      "ms": 21.65,
-      "diffMs": 17.62,
-      "patchMs": 1.22,
+      "ms": 20.25,
+      "diffMs": 19.19,
+      "patchMs": 1.14,
       "patches": 2000,
       "byType": {
         "PROPS": 2000
@@ -133,9 +133,9 @@
     },
     {
       "name": "clear 1k",
-      "ms": 22.75,
-      "diffMs": 1.61,
-      "patchMs": 21.01,
+      "ms": 19.81,
+      "diffMs": 1.48,
+      "patchMs": 18.34,
       "patches": 1000,
       "byType": {
         "REMOVE": 1000

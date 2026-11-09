@@ -2,7 +2,8 @@
 /**
  * 대량 목록 벤치마크 (Node + jsdom). js-framework-benchmark의 시나리오를 본떠 1,000행 표를 조작한다.
  *
- *   node scripts/bench/run.js [--rows 1000] [--runs 15] [--json out.json]
+ *   node scripts/bench/run.js [--rows 1000] [--runs 15] [--warmup 5] [--json out.json]
+ *   10k는 jsdom 메모리 때문에 --runs 1 --warmup 0 --max-old-space-size=6144 로 돌린다.
  *
  * 측정값 (시나리오마다)
  *   - ms: diff+patch에 걸린 시간의 중앙값 (render() 한 번. 준비 단계는 재지 않는다)
@@ -24,10 +25,11 @@ const opt = (name, def) => {
 };
 const ROWS = Number(opt('rows', 1000));
 const RUNS = Number(opt('runs', 15));
-const WARMUP = 5;
+const WARMUP = Number(opt('warmup', 5));
+const K = ROWS >= 1000 ? `${ROWS / 1000}k` : String(ROWS);
 const JSON_OUT = opt('json', null);
 
-// 시나리오마다 새 jsdom 창을 쓰고 끝나면 닫는다. 한 창을 계속 쓰면 jsdom이 노드를 붙잡아 10k에서 메모리가 넘친다.
+// 실행마다 새 jsdom 창을 쓰고 끝나면 닫는다. 한 창을 계속 쓰면 jsdom이 노드를 붙잡아 10k에서 메모리가 넘친다.
 let win;
 function freshWindow() {
   win?.close();
@@ -75,9 +77,9 @@ function view(data, selected = 0) {
 
 /** 시나리오: setup(빈 컨테이너에서 준비할 데이터) → run(data)이 다음 데이터를 돌려준다 */
 const scenarios = [
-  { name: 'create 1k (from null)', setup: () => null, run: () => buildData(ROWS) },
-  { name: 'create 1k (empty tbody)', setup: () => [], run: () => buildData(ROWS) },
-  { name: 'replace all 1k', setup: () => buildData(ROWS), run: () => buildData(ROWS) },
+  { name: `create ${K} (from null)`, setup: () => null, run: () => buildData(ROWS) },
+  { name: `create ${K} (empty tbody)`, setup: () => [], run: () => buildData(ROWS) },
+  { name: `replace all ${K}`, setup: () => buildData(ROWS), run: () => buildData(ROWS) },
   {
     name: 'update every 10th',
     setup: () => buildData(ROWS),
@@ -96,9 +98,9 @@ const scenarios = [
   { name: 'last to first', setup: () => buildData(ROWS), run: (d) => [d[d.length - 1], ...d.slice(0, -1)] },
   { name: 'reverse', setup: () => buildData(ROWS), run: (d) => d.slice().reverse() },
   { name: 'remove 1 row', setup: () => buildData(ROWS), run: (d) => d.filter((_, i) => i !== 500) },
-  { name: 'append 1k to 1k', setup: () => buildData(ROWS), run: (d) => [...d, ...buildData(ROWS)] },
+  { name: `append ${K} to ${K}`, setup: () => buildData(ROWS), run: (d) => [...d, ...buildData(ROWS)] },
   { name: 'no-op re-render', setup: () => buildData(ROWS), run: (d) => d },
-  { name: 'clear 1k', setup: () => buildData(ROWS), run: () => [] },
+  { name: `clear ${K}`, setup: () => buildData(ROWS), run: () => [] },
 ];
 
 function countByType(patches) {
@@ -113,7 +115,6 @@ const median = (xs) => {
 };
 
 function runScenario(sc) {
-  freshWindow();
   const times = [];
   const diffTimes = [];
   const patchTimes = [];
@@ -121,6 +122,7 @@ function runScenario(sc) {
   let byType = null;
   let mutations = null;
   for (let r = 0; r < WARMUP + RUNS; r += 1) {
+    freshWindow();
     const container = document.createElement('div');
     document.body.appendChild(container);
     const before = sc.setup(); // null이면 이전 트리 없음, []이면 빈 tbody
@@ -152,6 +154,8 @@ function runScenario(sc) {
       mutations = records.length;
     }
   }
+  process.stderr.write(`  ${sc.name}: ${median(times).toFixed(1)}ms
+`);
   return {
     name: sc.name,
     ms: +median(times).toFixed(2),

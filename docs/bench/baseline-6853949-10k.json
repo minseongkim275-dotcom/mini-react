@@ -1,0 +1,146 @@
+{
+  "rows": 10000,
+  "runs": 1,
+  "node": "v22.19.0",
+  "results": [
+    {
+      "name": "create 10k (from null)",
+      "ms": 1094.99,
+      "diffMs": 25.89,
+      "patchMs": 1069.11,
+      "patches": 1,
+      "byType": {
+        "CREATE": 1
+      },
+      "mutations": 1
+    },
+    {
+      "name": "create 10k (empty tbody)",
+      "ms": 1171.33,
+      "diffMs": 38.47,
+      "patchMs": 1132.86,
+      "patches": 10000,
+      "byType": {
+        "CREATE": 10000
+      },
+      "mutations": 10000
+    },
+    {
+      "name": "replace all 10k",
+      "ms": 1480.65,
+      "diffMs": 46.88,
+      "patchMs": 1433.77,
+      "patches": 20000,
+      "byType": {
+        "REMOVE": 10000,
+        "CREATE": 10000
+      },
+      "mutations": 20000
+    },
+    {
+      "name": "update every 10th",
+      "ms": 186.78,
+      "diffMs": 162.63,
+      "patchMs": 24.15,
+      "patches": 21000,
+      "byType": {
+        "TEXT": 1000,
+        "PROPS": 20000
+      },
+      "mutations": 1000
+    },
+    {
+      "name": "select row",
+      "ms": 142.62,
+      "diffMs": 123.96,
+      "patchMs": 18.66,
+      "patches": 20001,
+      "byType": {
+        "PROPS": 20001
+      },
+      "mutations": 1
+    },
+    {
+      "name": "swap 2 rows",
+      "ms": 160.46,
+      "diffMs": 140.6,
+      "patchMs": 19.86,
+      "patches": 20002,
+      "byType": {
+        "PROPS": 20000,
+        "MOVE": 2
+      },
+      "mutations": 4
+    },
+    {
+      "name": "last to first",
+      "ms": 225.56,
+      "diffMs": 198.75,
+      "patchMs": 26.81,
+      "patches": 20001,
+      "byType": {
+        "PROPS": 20000,
+        "MOVE": 1
+      },
+      "mutations": 2
+    },
+    {
+      "name": "reverse",
+      "ms": 3992.29,
+      "diffMs": 132.29,
+      "patchMs": 3860,
+      "patches": 29999,
+      "byType": {
+        "PROPS": 20000,
+        "MOVE": 9999
+      },
+      "mutations": 19998
+    },
+    {
+      "name": "remove 1 row",
+      "ms": 159.99,
+      "diffMs": 146.24,
+      "patchMs": 13.74,
+      "patches": 19999,
+      "byType": {
+        "PROPS": 19998,
+        "REMOVE": 1
+      },
+      "mutations": 1
+    },
+    {
+      "name": "append 10k to 10k",
+      "ms": 11986.5,
+      "diffMs": 176.5,
+      "patchMs": 11810,
+      "patches": 30000,
+      "byType": {
+        "PROPS": 20000,
+        "CREATE": 10000
+      },
+      "mutations": 10000
+    },
+    {
+      "name": "no-op re-render",
+      "ms": 163.27,
+      "diffMs": 149.17,
+      "patchMs": 14.1,
+      "patches": 20000,
+      "byType": {
+        "PROPS": 20000
+      },
+      "mutations": 0
+    },
+    {
+      "name": "clear 10k",
+      "ms": 258.35,
+      "diffMs": 23.92,
+      "patchMs": 234.43,
+      "patches": 10000,
+      "byType": {
+        "REMOVE": 10000
+      },
+      "mutations": 10000
+    }
+  ]
+}
