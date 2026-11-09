@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { lisMoves, reactMoves } from '../../scripts/bench/react-moves.js';
+import { lisMovesByKeys as lisMoves, reactMovesByKeys as reactMoves } from '../../scripts/bench/react-moves.js';
 
 const keys = (n) => Array.from({ length: n }, (_, i) => i);
 

@@ -19,7 +19,7 @@
  * 측정하는 구간의 DOM 변경은 모두 src/diff/patch.js가 한다.
  */
 import { h, diff, patch, domToVNode } from '../../src/index.js';
-import { lisMoves, reactMoves } from './react-moves.js';
+import { lisMovesByKeys, reactMovesByKeys } from './react-moves.js';
 
 const ADJ = ['pretty', 'large', 'big', 'small', 'tall', 'short', 'long', 'handsome', 'plain', 'quaint'];
 const NOUN = ['table', 'chair', 'house', 'bbq', 'desk', 'car', 'pony', 'cookie', 'sandwich', 'burger'];
@@ -178,7 +178,7 @@ export function measureScenario(scenario, rowCount, doc) {
     records: records.length,
     addedRemoved,
     created,
-    moves: { engine: kinds.MOVE ?? 0, lisMin: lisMoves(oldKeys, newKeys), react: reactMoves(oldKeys, newKeys) },
+    moves: { engine: kinds.MOVE ?? 0, lisMin: lisMovesByKeys(oldKeys, newKeys), react: reactMovesByKeys(oldKeys, newKeys) },
     diffMs: t1 - t0,
     patchMs: t2 - t1,
   };
